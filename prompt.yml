@@ -1,0 +1,7 @@
+---
+
+- hosts: localhost
+  vars_prompt:
+    - name: share_user_name
+      prompt: "What is your network username?"
+      name: demo go

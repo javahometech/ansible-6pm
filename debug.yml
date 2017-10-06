@@ -1,0 +1,12 @@
+---
+
+- hosts: localhost
+  accelerate: true
+  vars:
+    # is_db_server: true
+  tasks:
+    - debug: msg='This is debug message'+{{ansible_user_gecos}}+{{employee.name}}
+      when: (ansible_user_gecos is defined) and ansible_user_gecos == "kammana"
+    - name: demo
+      yum: 'name=httpd state=present'
+      when: ansible_user_gecos is defined

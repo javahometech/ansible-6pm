@@ -3,6 +3,8 @@
 - hosts: webservers
   become: true
   tasks:
+    - name: Install git
+      yum: name='git' state=present
     - name: Install apache server on centos
       yum: name='httpd' state=present
     - name: Start apache server
@@ -10,4 +12,4 @@
     - name: clone website from git repo
       git:
         repo: https://github.com/javahometech/website-ansble
-        dest: /var/www/html   
+        dest: /var/www/html
